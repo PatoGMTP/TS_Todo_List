@@ -1,0 +1,53 @@
+<header>
+    <h1>{{name}}'s To-Do List Angular App</h1>
+</header>
+
+<div class="content">
+    <div class="form_area">
+        <button (click)="toggleMode()" hidden>Toggle</button>
+
+        <!-- <div *ngIf="mode=='new'" class="add_todo"> -->
+        <!-- <div class="add_todo" [hidden]="myvar"> -->
+        <div class="add_todo" [style.display]=" myvar ? 'flex' : 'none'">
+            <label for="todo">Enter New Todo</label>
+            <input #todoNew (keyup.enter)="addItem()" placeholder="Enter Todo item here" [(ngModel)]="target.todo">
+            <button (click)="addItem()">Add Todo</button>
+        </div>
+
+        <!-- <div *ngIf="mode=='edit'" class="add_todo"> -->
+        <!-- <div class="add_todo" [hidden]="!myvar"> -->
+        <div class="add_todo" [style.display]=" !myvar ? 'flex' : 'none'">
+            <label for="todo">Edit Todo</label>
+            <input #todoEdit (keyup.enter)="saveEdits()" placeholder="Don't leave me empty!" [(ngModel)]="target.todo" [formControl]="input">
+            <div class="buttons">
+                <button (click)="saveEdits()">Save Edits</button>
+                <button (click)="cancelEdit()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+
+    <ul class="list">
+        <h1>Todo:</h1>
+        <li 
+            #task
+            *ngFor="let item of list; index as i" 
+            [ngClass]="item.completed ? 'done' : '' " 
+            [attr.id]="i"
+            [attr.data-value]="item.todo"
+
+        >
+            <span (dblclick)="toggleCompletion(i)">
+                {{item.todo}}
+            </span>
+
+            <button (dblclick)="deleteItem(i)">
+                Delete
+            </button>
+
+            <button (dblclick)="enterEditMode(task)">
+                Edit
+            </button>
+        </li>
+    </ul>
+</div>

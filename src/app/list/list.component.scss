@@ -1,0 +1,70 @@
+:host
+{
+    // height: 100%;
+
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+header
+{
+    text-align: center;
+}
+
+.content
+{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+    // display: grid;
+    // grid-gap: 10px;
+    // grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    // grid-template-columns: minmax(200px, 500px) minmax(300px, 700px);
+}
+
+.done
+{
+    text-decoration: line-through;
+}
+
+.add_todo
+{
+    height:fit-content;
+    display: flex;
+    flex-flow: column;
+    // align-items: center;
+    // justify-content: center;
+
+    // align-items: flex-start;
+
+    flex: 1 1 300px
+}
+
+.list
+{
+    flex: 1 1 500px;
+
+    list-style: none;
+}
+
+li
+{
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+}
+
+li > span
+{
+    background-color: lightgreen;
+}
+
+li > span:hover
+{
+    background-color: rgba(144, 238, 144, 0.589);
+}
+
+li > span:active
+{
+    background-color: rgb(124, 240, 124);
+}

@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+
+*
+{
+    box-sizing: border-box;
+    padding: .5rem;
+    margin: 0;
+}
+
+html, body
+{
+    height: 100%;
+}
+
+// body
+// {
+//     display: flex;
+//     flex-flow: column;
+// }
